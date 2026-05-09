@@ -1,0 +1,27 @@
+# Halshow settings
+# This file is generated automatically.
+wm geometry . 913x475+810+490
+placeFrames 0.3
+set ::ratio 0.3
+set ::old_w_leftf 160
+set ::watchlist {
+    param+hm2_7i76e.0.encoder.00.counter-mode
+    pin+hm2_7i76e.0.encoder.00.count-latched
+    pin+hm2_7i76e.0.encoder.00.count
+    pin+hm2_7i76e.0.encoder.00.position
+    pin+hm2_7i76e.0.encoder.00.position-latched
+    pin+hm2_7i76e.0.encoder.00.rawlatch
+    pin+hm2_7i76e.0.encoder.00.rawcounts
+    pin+hm2_7i76e.0.encoder.00.reset
+    param+hm2_7i76e.0.encoder.00.filter
+    pin+hm2_7i76e.0.encoder.00.input-index
+    pin+hm2_7i76e.0.encoder.00.index-enable
+    sig+spindle-index-enable
+}
+set ::workmode watchhal
+set ::watchInterval 100
+set ::col1_width 100
+set ::ffmts 
+set ::ifmts 
+set ::alwaysOnTop 0
+set ::autoSaveWatchlist 1
