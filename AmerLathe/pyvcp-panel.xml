@@ -48,25 +48,19 @@
                         </meter>
                 </hbox>
 
-                <!-- the spindle angle dial -->
+                <!-- the spindle angle readout -->
                 <hbox>
                         <relief>RAISED</relief>
                         <bd>3</bd>
-
-                        <dial>
-                        <halpin>"spindle_angle"</halpin>
-                        <text>"Angle"</text>
-                        <initval>0</initval>
-                        <resolution>0.5</resolution>
-                        <size>200</size>
-                        <cpr>60</cpr>
-                        <min_>0</min_>
-                        <max_>360</max_>
-                        <dialcolor>"yellow"</dialcolor>
-                        <edgecolor>"cyan"</edgecolor>
-                        <dotcolor>"black"</dotcolor>
-                        <param_pin>1</param_pin>
-                        </dial>
+                        <label>
+                                <text>"Spindle Angle:"</text>
+                                <font>("Helvetica",20)</font>
+                        </label>
+                        <number>
+                                <halpin>"spindle_angle"</halpin>
+                                <font>("Helvetica",24)</font>
+                                <format>"3.1f deg"</format>
+                        </number>
                 </hbox>
 
         </vbox>
