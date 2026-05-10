@@ -9,3 +9,10 @@ net spindle-at-speed        =>    pyvcp.spindle-at-speed-led
 
 # **** Setup of spindle speed display using pyvcp -END ****
 
+
+# Meter
+loadrt mult2
+addf mult2.0 servo-thread
+setp mult2.0.in1 28.75
+net cypher_speed mult2.0.in0 <= spindle-vfd.frequency-out
+net speed_out pyvcp.spindle_rpm <= mult2.0.out
