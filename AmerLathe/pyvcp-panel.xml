@@ -52,19 +52,21 @@
                 <hbox>
                         <relief>RAISED</relief>
                         <bd>3</bd>
-                        <meter>
+
+                        <dial>
                         <halpin>"spindle_angle"</halpin>
-                        <text>"Spindle"</text>
-                        <subtext>"Angle Deg"</subtext>
+                        <text>"Angle"</text>
+                        <initval>0</initval>
+                        <resolution>0.5</resolution>
                         <size>200</size>
+                        <cpr>60</cpr>
                         <min_>0</min_>
                         <max_>360</max_>
-                        <majorscale>45</majorscale>
-                        <minorscale>5</minorscale>
-                        <region1>0,90,"green"</region1>
-                        <region2>90,270,"yellow"</region2>
-                        <region3>270,360,"green"</region3>
-                        </meter>
+                        <dialcolor>"yellow"</dialcolor>
+                        <edgecolor>"cyan"</edgecolor>
+                        <dotcolor>"black"</dotcolor>
+                        <param_pin>1</param_pin>
+                        </dial>
                 </hbox>
 
         </vbox>
