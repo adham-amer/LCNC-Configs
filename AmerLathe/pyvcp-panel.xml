@@ -46,29 +46,5 @@
                         </meter>
                 </hbox>
 
-                <!-- the On Led -->
-                <hbox>
-                <relief>RAISED</relief>
-                <bd>3</bd>
-                <vbox>
-                        <relief>RAISED</relief>
-                        <bd>2</bd>
-                        <label>
-                                <text>"On"</text>
-                                <font>("Helvetica",18)</font>
-                        </label>
-                        <width>5</width>
-                        <hbox>
-                                <label width="2"/> <!-- used to center the led -->
-                                <rectled>
-                                <halpin>"on-led"</halpin>
-                                <height>"30"</height>
-                                <width>"30"</width>
-                                <on_color>"green"</on_color>
-                                <off_color>"red"</off_color>
-                                </rectled>
-                        </hbox>
-                </vbox>
-
         </vbox>
 </pyvcp>
