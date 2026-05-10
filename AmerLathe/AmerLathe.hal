@@ -11,7 +11,7 @@ setp    hm2_7i76e.0.watchdog.timeout_ns 5000000
 loadrt pid names=pid.x,pid.z,pid.s
 loadrt abs names=abs.spindle
 loadrt lowpass names=lowpass.spindle
-loadrt scale names=scale.spindle,scale.spindle-angle
+loadrt scale names=scale.spindle
 loadrt near
 
 addf hm2_7i76e.0.read          servo-thread
@@ -21,7 +21,6 @@ addf pid.x.do-pid-calcs       servo-thread
 addf pid.z.do-pid-calcs       servo-thread
 addf pid.s.do-pid-calcs       servo-thread
 addf scale.spindle            servo-thread
-addf scale.spindle-angle      servo-thread
 addf abs.spindle              servo-thread
 addf lowpass.spindle          servo-thread
 addf near.0                   servo-thread
@@ -190,6 +189,10 @@ net spindle-vel-fb-rps       <=   hm2_7i76e.0.encoder.00.velocity
 net spindle-vel-fb-rpm       <=   hm2_7i76e.0.encoder.00.velocity-rpm
 net spindle-index-enable     <=>  hm2_7i76e.0.encoder.00.index-enable
 
+loadusr -Wn spindle_angle python3 spindle_angle.py
+net spindle-revs             =>   spindle_angle.revs
+net spindle-angle            <=   spindle_angle.degrees
+
 #setp spindle-index-enable true
 # ---setup spindle control signals---
 
@@ -222,14 +225,11 @@ setp near.0.difference 4.166667
 #  ACTUAL velocity is in RPS not RPM so we scale it.
 
 setp     scale.spindle.gain 60
-setp     scale.spindle-angle.gain 360
 setp     lowpass.spindle.gain 0.850000
 net spindle-vel-fb-rps        =>     scale.spindle.in
 net spindle-fb-rpm               scale.spindle.out       =>   abs.spindle.in
 net spindle-fb-rpm-abs           abs.spindle.out         =>   lowpass.spindle.in
 net spindle-fb-rpm-abs-filtered  lowpass.spindle.out  
-net spindle-revs                 =>   scale.spindle-angle.in
-net spindle-angle                <=   scale.spindle-angle.out
 
 #******************************
 # connect miscellaneous signals
