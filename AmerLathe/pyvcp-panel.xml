@@ -46,5 +46,22 @@
                         </meter>
                 </hbox>
 
+                <!-- the spindle angle meter -->
+                <hbox>
+                        <relief>RAISED</relief>
+                        <bd>3</bd>
+                        <meter>
+                        <halpin>"spindle_angle"</halpin>
+                        <text>"Spindle"</text>
+                        <subtext>"Angle"</subtext>
+                        <size>200</size>
+                        <min_>0</min_>
+                        <max_>360</max_>
+                        <majorscale>90</majorscale>
+                        <minorscale>15</minorscale>
+                        <region1>0,360,"cyan"</region1>
+                        </meter>
+                </hbox>
+
         </vbox>
 </pyvcp>

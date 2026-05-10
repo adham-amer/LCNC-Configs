@@ -17,3 +17,4 @@ net spindle-at-speed        =>    pyvcp.spindle-at-speed-led
 #net cypher_speed mult2.0.in0 <= spindle-vfd.frequency-out
 #net speed_out pyvcp.spindle_rpm <= mult2.0.out
 net spindle-fb-rpm-abs-filtered       =>   pyvcp.spindle_rpm
+net spindle-angle                     =>   pyvcp.spindle_angle
