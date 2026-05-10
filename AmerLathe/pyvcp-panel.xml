@@ -39,10 +39,12 @@
                         <subtext>"RPM"</subtext>
                         <size>200</size>
                         <min_>0</min_>
-                        <max_>3000</max_>
+                        <max_>2500</max_>
                         <majorscale>500</majorscale>
                         <minorscale>100</minorscale>
-                        <region1>0,10,"yellow"</region1>
+                        <region1>0,800,"green"</region1>
+                        <region2>800,1500,"yellow"</region2>
+                        <region3>1500,2500,"red"</region3>
                         </meter>
                 </hbox>
 
