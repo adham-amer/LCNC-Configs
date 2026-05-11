@@ -1,0 +1,46 @@
+(OD ROUGHING CYCLE - DI TO DF)
+(LinuxCNC / Fanuc-style variables, diameter mode)
+
+G18 G7 G40 G90        (XZ plane, diameter mode, cancel comp, absolute)
+
+#<Di>      = 50.0     (starting diameter)
+#<Df>      = 30.0     (final diameter)
+#<DOC>     = 1.0      (radial depth of cut per pass)
+#<Zstart>  = 2.0      (start Z, in front of part)
+#<Zend>    = -40.0    (end Z)
+#<clear>   = 1.0      (diameter clearance)
+#<ret>     = 1.0      (45 deg retract amount, radial/axial)
+#<feed>    = 0.15     (feed per rev or feed/min depending mode)
+
+#<Xcur> = #<Di>
+
+o100 while [#<Xcur> GT #<Df>]
+
+    #<Xnext> = [#<Xcur> - [2 * #<DOC>]]
+
+    o110 if [#<Xnext> LT #<Df>]
+        #<Xnext> = #<Df>
+    o110 endif
+
+    (rapid to safe start)
+    G0 X[#<Xnext> + #<clear>] Z#<Zstart>
+
+    (feed into cut)
+    G1 X#<Xnext> F#<feed>
+
+    (turn along Z)
+    G1 Z#<Zend>
+
+    (45 degree retract away from workpiece)
+    (X is diameter mode, so X moves 2x radial retract)
+    G1 X[#<Xnext> + [2 * #<ret>]] Z[#<Zend> + #<ret>]
+
+    (rapid back to start)
+    G0 Z#<Zstart>
+
+    #<Xcur> = #<Xnext>
+
+o100 endwhile
+
+G0 X[#<Di> + #<clear>] Z#<Zstart>
+M30
