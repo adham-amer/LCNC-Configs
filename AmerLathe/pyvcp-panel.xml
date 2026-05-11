@@ -54,11 +54,11 @@
                         <bd>3</bd>
                         <label>
                                 <text>"Spindle Angle:"</text>
-                                <font>("Helvetica",20)</font>
+                                <font>("Helvetica",12)</font>
                         </label>
                         <number>
                                 <halpin>"spindle_angle"</halpin>
-                                <font>("Helvetica",24)</font>
+                                <font>("Helvetica",12)</font>
                                 <format>"3.1f deg"</format>
                         </number>
                 </hbox>
